@@ -101,7 +101,7 @@ _MATTING_INFORMATION = DatasetDescriptor(
         'train': 30600,  # num of samples in images/training
         'val': 3000,  # num of samples in images/validation
     },
-    num_classes=1,
+    num_classes=2,
     ignore_label=300,
 )
 
