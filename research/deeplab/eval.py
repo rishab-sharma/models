@@ -147,7 +147,12 @@ def main(unused_argv):
       predictions_tag += '_' + str(eval_scale)
     if FLAGS.add_flipped_images:
       predictions_tag += '_flipped'
-
+    
+    indices = tf.squeeze(tf.where(tf.less_equal(
+        labels, dataset.num_of_classes - 1)), 1)
+    labels = tf.cast(tf.gather(labels, indices), tf.int32)
+    predictions = tf.gather(predictions, indices)
+    
     # Define the evaluation metric.
     miou, update_op = tf.metrics.mean_iou(
         predictions, labels, dataset.num_of_classes, weights=weights)
