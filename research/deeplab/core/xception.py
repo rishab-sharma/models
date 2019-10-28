@@ -184,7 +184,7 @@ def separable_conv2d_same(inputs,
     else:
       outputs = _split_separable_conv2d(padding='SAME')
   else:
-    inputs = fixed_padding(inputs, kernel_size, rate)
+#     inputs = fixed_padding(inputs, kernel_size, rate)
     if regularize_depthwise:
       outputs = _separable_conv2d(padding='VALID')
     else:
